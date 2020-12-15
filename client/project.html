@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="./super-admin.css">
+    <!-- <script src="./super-admin.js"></script> -->
+    <title>Project!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://www.macappstudio.com/" target="_blank">
+                <img src="./macapplogo.png" alt="Logo" class="rounded" style="width:30px"> MacAppStudio
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ui-navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ui-navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./super-admin.html"><i class="fa fa-chart-bar text-muted"></i>
+                            DataBoard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./project.html"><i class="fa fa-list text-muted"></i> Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#"><i class="fa fa-sitemap text-muted"></i> Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#"><i class="fa fa-users text-muted"></i> Employees</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" id="nav-name" href="#" data-toggle="dropdown"><i
+                                class="fas fa-sign-in-alt text-muted"></i></a>
+                        <div class="dropdown-menu p-2">
+                            <a href="#" type="button" onclick="showOldProfile()" class="dropdown-item"
+                                data-toggle="modal" data-target="#profile-modal">
+                                <i class="fa fa-user-circle"></i> Update Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-cogs"></i> Setting
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.html"><i class="fas fa-sign-out-alt text-muted"></i>
+                            LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="bg-dashboard p-2">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <h1><i class="fa fa-list text-white"> Projects</i></h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- updated profile -->
+    <div class="modal" id="profile-modal">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header text-black">
+                    <h3 class="font-weight-bold">Update Profile</h3>
+                    <button class="close" data-dismiss="modal">
+                        <i class="fa fa-times-circle"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-check-label">Name</label>
+                            <input type="text" class="form-control" id="ename" placeholder="Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-check-label">Email</label>
+                            <input type="email" class="form-control" id="eemail" placeholder="Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-check-label">Contact</label>
+                            <input type="text" class="form-control" id="econtact" placeholder="Contact">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-check-label">New Password</label>
+                            <input type="text" class="form-control" id="epassword" placeholder="New Password">
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <input type="button" class="btn btn-dark text-nowrap" onclick="updateProfile()" value="Update">
+                            <button type="button" class="btn btn-secondary btn-block ml-1"
+                                data-dismiss="modal">Close</button>
+                        </div> -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary mr-auto"
+                                onclick="updateProfile()">Update</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button Section -->
+    <section class="bg-button p-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="btn1 btn-block" data-toggle="modal" data-target="#task-modal">
+                        <i class="fa fa-plus-circle"></i> Add Project</button>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- <button class="btn1 btn-block"><i class="fa fa-plus-circle"></i> Add Categorie</button> -->
+                </div>
+
+                <div class="col-md-4">
+                    <button class="btn1 btn-block" data-toggle="modal" data-target="#employee-modal"><i
+                            class="fa fa-plus-circle"></i> Add Employee</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <table class="table table-hover text-center" id="data-table">
+                                <thead class="bg-dark text-white">
+                                    <tr>
+                                        <th>S.NO</th>
+                                        <th>NAME</th>
+                                        <th>CATEGORY</th>
+                                        <th>DETAILS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-table-body">
+                                    <tr>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Model -->
+    <div class="modal" id="task-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-black">
+                    <h3 class="font-weight-bold">Add Project</h3>
+                    <button class="close" data-dismiss="modal">
+                        <i class="fa fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-check-label">Title</label>
+                            <input type="text" class="form-control" id="project-name" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">Category</label>
+                            <select class="form-control" id="project-select">
+                                <option value="">Choose</option>
+                                <option value="Development">Development</option>
+                                <option value="Maintenance">Maintenance</option>
+                                <option value="Client Meeting">Client Meeting</option>
+                                <option value="Bug Fixing">Bug Fixing</option>
+                            </select>
+                        </div>
+                        <input type="button" class="btn1" value="Add Project" onclick="addProject()">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Employee Model-->
+    <div class="modal" id="employee-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-black">
+                    <h3 class="font-weight-bold">Add Employee</h3>
+                    <button class="close" data-dismiss="modal">
+                        <i class="fa fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-check-label">Name</label>
+                            <input type="text" class="form-control" id="ename" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">Email</label>
+                            <input type="email" class="form-control" id="eemail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">Contact</label>
+                            <input type="text" class="form-control" id="econtact" placeholder="Contact">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">Password</label>
+                            <input type="password" class="form-control" id="epassword" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">Category</label>
+                            <select class="form-control" id="myselect">
+                                <option value="">Choose</option>
+                                <option value="super-admin">Super Admin</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">Employee</option>
+                            </select>
+                        </div>
+                        <input type="button" class="btn1" value="Add Employee" onclick="register()">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Member model -->
+    <div class="modal" id="member-model">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header text-black">
+                    <h3 class="font-weight-bold">Project Members</h3>
+                    <button class="btn btn-sm btn-outline-dark col-sm-3 ml-auto" data-toggle="modal"
+                        data-target="#add-member-model" onclick="getEmployees()">
+                        <i class="fa fa-plus-circle"></i> Add Member</button>
+                    <button class="close" data-dismiss="modal" id="close-btn">
+                        <i class="fa fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover text-center" id="member-table">
+                        <thead>
+                            <tr>
+                                <th>S.NO</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="member-table-body">
+                            <tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Member model -->
+    <div class="modal" id="add-member-model">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-black">
+                    <h3 class="font-weight-bold">Members</h3>
+                    <button class="btn btn-sm btn-outline-dark col-xs-12 ml-auto" id="btn">Submit</button>
+                    <button class="close" data-dismiss="modal">
+                        <i class="fa fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover text-center" id="add-member-table">
+                        <thead>
+                            <tr>
+                                <th>S.NO</th>
+                                <th>NAME</th>
+                                <th>CATEGORY</th>
+                                <th>CHECK</th>
+                            </tr>
+                        </thead>
+                        <tbody id="add-member-table-body">
+                            <tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="p-3 bg-dark text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>Copyright &COPY; 2020, macappstudio.com</h3>
+                    <h6>All Right Reserved</h6>
+                    <h6>Developed & Maintained by
+                        <a class="text-warning" href="https://github.com/JeyasinghAlex" target="_blank">JEYASINGH
+                            ALEX</a>
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        let datas;
+        let projectId;
+        let projects;
+        $(document).ready(function () {
+            $('#nav-name').html(localStorage.getItem('userName'));
+            var token = localStorage.getItem('jwt');
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:3000/project',
+                contentType: 'application/json',
+                headers: { "Authorization": token },
+                success: function (data) {
+                    datas = data;
+                    projects = data.projects;
+                    for (var i = 0; i < data.projects.length; i += 1) {
+                        $("#data-table-body").append('<tr id="tr-dt' + i + '">' + '<td>' + (i + 1) + '</td>' + '<td>' + data.projects[i].name + '</td>' + '<td>'
+                            + data.projects[i].category + '</td>' + '<td>' + "<button id='clear-modal' class='btn btn-outline-dark btn-sm' onclick='showMembers(" + i + ")' data-toggle='modal' data-target='#member-model'> click here </button>" + '</td>' + '<td>' + '<button class="btn btn-outline-danger btn-sm" onclick="removeProject(' + i + ')"> delete </button>' + '</td>' + + '</tr>');
+                    }
+                },
+                error: function (jqXHR, textStatus, err) {
+                    swal('Project is already Present...');
+                }
+            });
+        });
+
+        function showMembers(index) {
+            projectId = datas.projects[index]._id;
+            let members = datas.projects[index].member;
+            var token = localStorage.getItem('jwt');
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/project/employees',
+                contentType: 'application/json',
+                headers: { "Authorization": token },
+                data: JSON.stringify(members),
+                success: function (data) {
+                    let len = data.userName.length;
+                    for (var i = 0; i < len; i += 1) {
+                        $("#member-table-body").append('<tr id="tr-dt' + i + '">' + '<td>' + (i + 1) + '</td>' + '<td>' + data.userName[i] + '</td>' + '<td>'
+                            + '</td>' + '</tr>');
+                    }
+                },
+                error: function (jqXHR, textStatus, err) {
+                    swal('Project is already Present...');
+                }
+            });
+        }
+
+        function getEmployees() {
+            var token = localStorage.getItem('jwt');
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:3000/users',
+                contentType: 'application/json',
+                headers: { "Authorization": token }
+            }).done(data => {
+                for (var i = 0; i < data.result.length; i += 1) {
+                    $("#add-member-table-body").append('<tr>' + '<input type="hidden" id="mem' + i + '"value="' + data.result[i]._id + '">' + '<td>' + (i + 1) + '</td>' + '<td>' + data.result[i].name +
+                        '</td>' + '<td>' + data.result[i].category + '</td>' + '<td>' + '<input id="ch' + i + '" type="checkbox" name="case" >' + '</td>' + '</tr>');
+                }
+            });
+        }
+
+        $("#btn").on("click", function () {
+            var values = new Array();
+            let len = $('input[type=checkbox]').length;
+            for (let j = 0; j < len; ++j) {
+                if ($('#ch' + j).is(":checked")) {
+                    values.push($('#mem' + j).val());
+                }
+            }
+
+            let data = {
+                'id': projectId,
+                'member': values
+            };
+            console.log(data);
+            $.ajax({
+                type: 'PUT',
+                url: 'http://localhost:3000/project',
+                contentType: 'application/json',
+                headers: { "Authorization": localStorage.getItem('jwt') },
+                data: JSON.stringify(data),
+                success: function (result) {
+                    swal('Successfully added...').then(() => {
+                        location.reload();
+                    });
+                },
+                error: function (jqXHR, textStatus, err) {
+                    swal('Project is already Present...');
+                }
+            });
+        });
+
+        function removeProject(index) {
+            let id = projects[index]._id;
+            console.log(id);
+            $.ajax({
+                type: 'DELETE',
+                url: 'http://localhost:3000/project/' + id,
+                contentType: 'application/json',
+                headers: { "Authorization": localStorage.getItem('jwt') },
+                success: function (result) {
+                    swal('Successfully deleted project...').then(() => {
+                        location.reload();
+                    });
+                },
+                error: function (jqXHR, textStatus, err) {
+                    swal('Project is already Present...');
+                }
+            });
+        }
+
+        function addProject() {
+            const name = $('#project-name').val();
+            const category = $('#project-select').find('option:selected').val();
+            console.log(name + ' ' + category);
+
+            const project = {
+                name,
+                category
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/project',
+                contentType: 'application/json',
+                headers: { "Authorization": localStorage.getItem('jwt') },
+                data: JSON.stringify(project),
+                success: function (data) {
+                    swal('Successfully added...').then(() => {
+                        location.reload();
+                    });
+                },
+                error: function (jqXHR, textStatus, err) {
+                    swal('Project is already Present...');
+                }
+            });
+        }
+
+        $(".modal").on("hidden.bs.modal", function () {
+            $("#member-table-body").html("");
+        });
+
+
+    </script>
+</body>
+
+</html>
